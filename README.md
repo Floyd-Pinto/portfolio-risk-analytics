@@ -85,16 +85,21 @@ SELECT * FROM risk_metrics WHERE ticker = 'AAPL' LIMIT 5;
 
 ### 2. `risk_summary.csv` — Ranked Risk Report
 
-Example output (values are illustrative):
+Actual output from a live run (2-year window, Aug 2024 – Jul 2026), ranked by 95% Historical VaR (riskiest first):
 
 | Ticker | Hist VaR 95% | Hist VaR 99% | Param VaR 95% | Param VaR 99% | Avg Roll Vol | Full-Period MDD |
 |--------|-------------|-------------|--------------|--------------|-------------|----------------|
-| WIPRO.NS | -0.0321 | -0.0498 | -0.0298 | -0.0421 | 0.2341 | -0.3812 |
-| RELIANCE.NS | -0.0287 | -0.0431 | -0.0261 | -0.0369 | 0.2012 | -0.2754 |
-| AAPL | -0.0263 | -0.0389 | -0.0251 | -0.0355 | 0.1987 | -0.2341 |
-| ... | ... | ... | ... | ... | ... | ... |
+| WIPRO.NS | -0.0290 | -0.0435 | -0.0277 | -0.0390 | 0.2567 | -0.4422 |
+| INFY.NS | -0.0281 | -0.0452 | -0.0292 | -0.0409 | 0.2645 | -0.4817 |
+| AAPL | -0.0278 | -0.0498 | -0.0291 | -0.0416 | 0.2607 | -0.3336 |
+| GOOGL | -0.0266 | -0.0475 | -0.0312 | -0.0449 | 0.3027 | -0.2981 |
+| TCS.NS | -0.0257 | -0.0387 | -0.0259 | -0.0362 | 0.2264 | -0.5339 |
+| MSFT | -0.0256 | -0.0397 | -0.0292 | -0.0415 | 0.2503 | -0.3450 |
+| RELIANCE.NS | -0.0207 | -0.0339 | -0.0216 | -0.0305 | 0.2035 | -0.2387 |
+| HDFCBANK.NS | -0.0195 | -0.0330 | -0.0204 | -0.0289 | 0.1828 | -0.2778 |
+| ICICIBANK.NS | -0.0183 | -0.0299 | -0.0188 | -0.0267 | 0.1813 | -0.1837 |
 
-> VaR values are daily loss fractions (e.g. −0.032 = a 3.2% loss on a bad day).
+> VaR values are daily loss fractions (e.g. −0.029 = a 2.9% loss on a bad day). WIPRO.NS carries the highest 95% VaR in this portfolio; ICICIBANK.NS the lowest. Note the Historical vs Parametric gap flips direction across tickers (e.g. WIPRO's historical loss is worse than its parametric estimate, while INFY's is the reverse) — a reminder that with a ~500-day sample, fat-tail effects don't move uniformly across assets.
 
 ### 3. `var_comparison.png` — VaR Bar Chart
 
