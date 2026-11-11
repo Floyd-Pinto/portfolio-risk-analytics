@@ -47,7 +47,7 @@ portfolio_risk_analytics/
 
 ```bash
 # Clone the repo
-git clone https://github.com/<your-username>/portfolio-risk-analytics.git
+git clone https://github.com/Floyd-Pinto/portfolio-risk-analytics.git
 cd portfolio-risk-analytics
 
 # Create and activate a virtual environment (recommended)
